@@ -1,6 +1,6 @@
 'use strict';
 
-function draw_logic(){
+function repo_drawlogic(){
     canvas_setproperties({
       'properties': {
         'fillStyle': core_storage_data['color-positive'],
@@ -28,7 +28,7 @@ function draw_logic(){
     }
 }
 
-function logic(){
+function repo_logic(){
     core_ui_update({
       'ids': {
         'score': score,
