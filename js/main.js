@@ -20,10 +20,21 @@ function repo_drawlogic(){
           },
         });
         canvas_buffer.fillRect(
-          click_x - 5,
-          click_y - 5,
-          10,
-          10
+          click_x - core_storage_data['click-width'] / 2,
+          click_y - core_storage_data['click-height'] / 2,
+          core_storage_data['click-width'],
+          core_storage_data['click-height']
+        );
+        canvas_setproperties({
+          'properties': {
+            'fillStyle': '#000',
+          },
+        });
+        canvas_buffer.fillRect(
+          click_x - 3,
+          click_y - 3,
+          6,
+          6
         );
     }
 }
@@ -88,10 +99,14 @@ function repo_init(){
       },
       'reset': canvas_setmode,
       'storage': {
+        'click-height': 36,
+        'click-width': 36,
         'target-height': 100,
         'target-width': 100,
       },
-      'storage-menu': '<table><tr><td><input id=target-height min=1 step=any type=number><td>Target Height'
+      'storage-menu': '<table><tr><td><input id=click-height min=8 step=any type=number><td>Target Height'
+        + '<tr><td><input id=click-width min=8 step=any type=number><td>Target Width'
+        + '<tr><td><input id=target-height min=1 step=any type=number><td>Target Height'
         + '<tr><td><input id=target-width min=1 step=any type=number><td>Target Width</table>',
       'title': 'BlindMouse.htm',
       'ui': 'Score: <span id=score></span>',
