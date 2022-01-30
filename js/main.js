@@ -91,8 +91,8 @@ function repo_init(){
         'target-height': 100,
         'target-width': 100,
       },
-      'storage-menu': '<table><tr><td><input id=target-height min=1 type=number><td>Target Height'
-        + '<tr><td><input id=target-width min=1 type=number><td>Target Width</table>',
+      'storage-menu': '<table><tr><td><input id=target-height min=1 step=any type=number><td>Target Height'
+        + '<tr><td><input id=target-width min=1 step=any type=number><td>Target Width</table>',
       'title': 'BlindMouse.htm',
       'ui': 'Score: <span id=score></span>',
     });
