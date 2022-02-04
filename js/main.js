@@ -104,10 +104,10 @@ function repo_init(){
         'target-height': 100,
         'target-width': 100,
       },
-      'storage-menu': '<table><tr><td><input id=click-height min=8 step=any type=number><td>Click Height'
-        + '<tr><td><input id=click-width min=8 step=any type=number><td>Click Width'
-        + '<tr><td><input id=target-height min=1 step=any type=number><td>Target Height'
-        + '<tr><td><input id=target-width min=1 step=any type=number><td>Target Width</table>',
+      'storage-menu': '<table><tr><td><input class=mini id=click-height min=8 step=any type=number><td>Click Height'
+        + '<tr><td><input class=mini id=click-width min=8 step=any type=number><td>Click Width'
+        + '<tr><td><input class=mini id=target-height min=1 step=any type=number><td>Target Height'
+        + '<tr><td><input class=mini id=target-width min=1 step=any type=number><td>Target Width</table>',
       'title': 'BlindMouse.htm',
       'ui': 'Score: <span id=score></span>',
     });
