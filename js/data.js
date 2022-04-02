@@ -2,12 +2,12 @@
 
 function gameover(){
     running = false;
-    document.body.style.cursor = 'pointer';
+    core_elements['canvas'].style.cursor = 'pointer';
     document.getElementById('canvas').style.cursor = 'pointer';
 }
 
 function load_data(id){
-    document.body.style.cursor = 'none';
+    core_elements['canvas'].style.cursor = 'none';
     document.getElementById('canvas').style.cursor = 'none';
     click_x = -1;
     click_y = -1;
