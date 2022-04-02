@@ -3,12 +3,10 @@
 function gameover(){
     running = false;
     core_elements['canvas'].style.cursor = 'pointer';
-    document.getElementById('canvas').style.cursor = 'pointer';
 }
 
 function load_data(id){
     core_elements['canvas'].style.cursor = 'none';
-    document.getElementById('canvas').style.cursor = 'none';
     click_x = -1;
     click_y = -1;
     score = 0;
