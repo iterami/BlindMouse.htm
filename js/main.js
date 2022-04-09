@@ -1,6 +1,10 @@
 'use strict';
 
 function repo_drawlogic(){
+    if(!entity_entities['target']){
+        return;
+    }
+
     canvas_setproperties({
       'properties': {
         'fillStyle': core_storage_data['color-positive'],
