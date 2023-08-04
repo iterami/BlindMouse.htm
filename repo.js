@@ -2,7 +2,7 @@
 
 function gameover(){
     running = false;
-    core_elements['canvas'].style.cursor = 'pointer';
+    core_elements['canvas'].style.cursor = 'auto';
 }
 
 function load_data(id){
