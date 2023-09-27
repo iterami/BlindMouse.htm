@@ -41,7 +41,7 @@ function repo_drawlogic(){
         'fillStyle': core_storage_data['color-positive'],
       },
     });
-    canvas_buffer.fillRect(
+    canvas.fillRect(
       entity_entities['target']['x'],
       entity_entities['target']['y'],
       core_storage_data['target-width'],
@@ -54,7 +54,7 @@ function repo_drawlogic(){
             'fillStyle': core_storage_data['color-negative'],
           },
         });
-        canvas_buffer.fillRect(
+        canvas.fillRect(
           click_x - core_storage_data['click-width'] / 2,
           click_y - core_storage_data['click-height'] / 2,
           core_storage_data['click-width'],
@@ -65,7 +65,7 @@ function repo_drawlogic(){
             'fillStyle': '#000',
           },
         });
-        canvas_buffer.fillRect(
+        canvas.fillRect(
           click_x - 3,
           click_y - 3,
           6,
