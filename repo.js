@@ -2,11 +2,11 @@
 
 function gameover(){
     running = false;
-    core_elements['canvas'].style.cursor = 'auto';
+    canvas.canvas.style.cursor = 'auto';
 }
 
 function load_data(id){
-    core_elements['canvas'].style.cursor = 'none';
+    canvas.canvas.style.cursor = 'none';
     click_x = -1;
     click_y = -1;
     score = 0;
