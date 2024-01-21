@@ -104,7 +104,7 @@ function repo_init(){
         'running': false,
         'score': 0,
       },
-      'info': '<input id=start type=button value="Start New Game">',
+      'info': '<button id=start type=button>Start New Game</button>',
       'menu': true,
       'mousebinds': {
         'mousedown': {
