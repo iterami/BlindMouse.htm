@@ -37,9 +37,7 @@ function repo_drawlogic(){
     }
 
     canvas_setproperties({
-      'properties': {
-        'fillStyle': '#206620',
-      },
+      'fillStyle': '#206620',
     });
     canvas.fillRect(
       entity_entities['target']['x'],
@@ -50,9 +48,7 @@ function repo_drawlogic(){
 
     if(click_x >= 0){
         canvas_setproperties({
-          'properties': {
-            'fillStyle': '#663366',
-          },
+          'fillStyle': '#663366',
         });
         canvas.fillRect(
           click_x - core_storage_data['click-width'] / 2,
@@ -61,9 +57,7 @@ function repo_drawlogic(){
           core_storage_data['click-height']
         );
         canvas_setproperties({
-          'properties': {
-            'fillStyle': '#000',
-          },
+          'fillStyle': '#000',
         });
         canvas.fillRect(
           click_x - 3,
