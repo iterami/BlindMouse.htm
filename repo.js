@@ -1,7 +1,6 @@
 'use strict';
 
 function gameover(){
-    running = false;
     canvas.canvas.style.cursor = 'auto';
 }
 
@@ -12,7 +11,6 @@ function load_data(id){
     score = 0;
 
     randomize_shapes();
-    running = true;
 }
 
 function randomize_shapes(){
@@ -29,13 +27,16 @@ function randomize_shapes(){
         }),
       },
     });
+
+    core_ui_update({
+      'ids': {
+        'score': score,
+      },
+    });
+    canvas_draw();
 }
 
 function repo_drawlogic(){
-    if(!entity_entities['target']){
-        return;
-    }
-
     canvas_setproperties({
       'fillStyle': '#206620',
     });
@@ -68,19 +69,11 @@ function repo_drawlogic(){
     }
 }
 
-function repo_logic(){
-    core_ui_update({
-      'ids': {
-        'score': score,
-      },
-    });
-}
-
 function repo_escape(){
     if(!core_menu_open){
         core_repo_reset();
 
-    }else if(running){
+    }else if(canvas_ready){
         gameover();
     }
 }
@@ -95,7 +88,6 @@ function repo_init(){
       'globals': {
         'click_x': -1,
         'click_y': -1,
-        'running': false,
         'score': 0,
       },
       'info': '<button id=start type=button>Start New Game</button>',
@@ -103,7 +95,7 @@ function repo_init(){
       'mousebinds': {
         'mousedown': {
           'todo': function(event){
-              if(!running){
+              if(canvas.canvas.style.cursor === 'auto'){
                   return;
               }
 
@@ -115,12 +107,13 @@ function repo_init(){
                 || click_y <= entity_entities['target']['y']
                 || click_y >= entity_entities['target']['y'] + core_storage_data['target-height']){
                   gameover();
-                  return;
-              }
+                  canvas_draw();
 
-              audio_start('boop');
-              score += 1;
-              randomize_shapes();
+              }else{
+                  audio_start('boop');
+                  score += 1;
+                  randomize_shapes();
+              }
           },
         },
       },
@@ -138,7 +131,9 @@ function repo_init(){
       'title': 'BlindMouse.htm',
       'ui': 'Score: <span id=score></span>',
     });
-    canvas_init();
+    canvas_init({
+      'interval': false,
+    });
 
     document.body.onmouseleave = gameover;
 }
