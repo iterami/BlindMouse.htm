@@ -73,7 +73,7 @@ function repo_escape(){
     if(!core_menu_open){
         core_repo_reset();
 
-    }else if(canvas_ready){
+    }else if(canvas_properties['ready']){
         gameover();
     }
 }
