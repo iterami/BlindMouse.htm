@@ -94,7 +94,7 @@ function repo_init(){
       'menu': true,
       'mousebinds': {
         'mousedown': {
-          'todo': function(event){
+          'todo': function(){
               if(canvas.canvas.style.cursor === 'auto'){
                   return;
               }
