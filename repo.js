@@ -37,6 +37,10 @@ function randomize_shapes(){
 }
 
 function repo_drawlogic(){
+    if(core_menu_open){
+        return;
+    }
+
     canvas_setproperties({
       'fillStyle': '#206620',
     });
@@ -73,7 +77,7 @@ function repo_escape(){
     if(!core_menu_open){
         core_repo_reset();
 
-    }else if(canvas_properties['ready']){
+    }else if(canvas !== 0){
         gameover();
     }
 }
