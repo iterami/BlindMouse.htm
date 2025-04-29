@@ -75,7 +75,7 @@ function repo_drawlogic(){
 
 function repo_escape(){
     if(!core_menu_open){
-        core_repo_reset();
+        canvas_setmode();
 
     }else if(canvas !== 0){
         gameover();
@@ -86,7 +86,7 @@ function repo_init(){
     core_repo_init({
       'events': {
         'start': {
-          'onclick': core_repo_reset,
+          'onclick': canvas_setmode,
         },
       },
       'globals': {
@@ -121,7 +121,6 @@ function repo_init(){
           },
         },
       },
-      'reset': canvas_setmode,
       'storage': {
         'click-height': 36,
         'click-width': 36,
