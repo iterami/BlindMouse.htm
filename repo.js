@@ -96,15 +96,15 @@ function repo_init(){
       },
       'info': '<button id=start type=button>Start New Game</button>',
       'menu': true,
-      'mousebinds': {
-        'mousedown': {
+      'pointerbinds': {
+        'pointerdown': {
           'todo': function(){
               if(canvas.canvas.style.cursor === 'auto'){
                   return;
               }
 
-              click_x = core_mouse['down-x'];
-              click_y = core_mouse['down-y'];
+              click_x = core_pointer['down-x'];
+              click_y = core_pointer['down-y'];
 
               if(click_x <= entity_entities['target']['x']
                 || click_x >= entity_entities['target']['x'] + core_storage_data['target-width']
@@ -138,5 +138,5 @@ function repo_init(){
       'interval': false,
     });
 
-    document.body.onmouseleave = gameover;
+    document.body.onpointerleave = gameover;
 }
