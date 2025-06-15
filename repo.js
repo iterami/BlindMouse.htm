@@ -19,8 +19,8 @@ function randomize_shapes(){
     entity_create({
       'id': 'target',
       'properties': {
-        'x': core_random_integer(canvas_properties['width'] - core_storage_data['target-width']),
-        'y': core_random_integer(canvas_properties['height'] - core_storage_data['target-height']),
+        'x': core_random_integer(canvas_properties.width - core_storage_data.target_width),
+        'y': core_random_integer(canvas_properties.height - core_storage_data.target_height),
       },
     });
 
@@ -41,10 +41,10 @@ function repo_drawlogic(){
       'fillStyle': '#206620',
     });
     canvas.fillRect(
-      entity_entities['target']['x'],
-      entity_entities['target']['y'],
-      core_storage_data['target-width'],
-      core_storage_data['target-height']
+      entity_entities.target.x,
+      entity_entities.target.y,
+      core_storage_data.target_width,
+      core_storage_data.target_height
     );
 
     if(click_x >= 0){
@@ -52,10 +52,10 @@ function repo_drawlogic(){
           'fillStyle': '#663366',
         });
         canvas.fillRect(
-          click_x - core_storage_data['click-width'] / 2,
-          click_y - core_storage_data['click-height'] / 2,
-          core_storage_data['click-width'],
-          core_storage_data['click-height']
+          click_x - core_storage_data.click_width / 2,
+          click_y - core_storage_data.click_height / 2,
+          core_storage_data.click_width,
+          core_storage_data.click_height
         );
         canvas_setproperties({
           'fillStyle': '#000',
@@ -102,10 +102,10 @@ function repo_init(){
               click_x = core_pointer['down-x'];
               click_y = core_pointer['down-y'];
 
-              if(click_x <= entity_entities['target']['x']
-                || click_x >= entity_entities['target']['x'] + core_storage_data['target-width']
-                || click_y <= entity_entities['target']['y']
-                || click_y >= entity_entities['target']['y'] + core_storage_data['target-height']){
+              if(click_x <= entity_entities.target.x
+                || click_x >= entity_entities.target.x + core_storage_data.target_width
+                || click_y <= entity_entities.target.y
+                || click_y >= entity_entities.target.y + core_storage_data.target_height){
                   gameover();
                   canvas_draw();
 
@@ -118,15 +118,15 @@ function repo_init(){
         },
       },
       'storage': {
-        'click-height': 36,
-        'click-width': 36,
-        'target-height': 100,
-        'target-width': 100,
+        'click_height': 36,
+        'click_width': 36,
+        'target_height': 100,
+        'target_width': 100,
       },
-      'storage-menu': '<table><tr><td><input class=mini id=click-height min=8 step=any type=number><td>Click Height'
-        + '<tr><td><input class=mini id=click-width min=8 step=any type=number><td>Click Width'
-        + '<tr><td><input class=mini id=target-height min=1 step=any type=number><td>Target Height'
-        + '<tr><td><input class=mini id=target-width min=1 step=any type=number><td>Target Width</table>',
+      'storage-menu': '<table><tr><td><input class=mini id=click_height min=8 step=any type=number><td>Click Height'
+        + '<tr><td><input class=mini id=click_width min=8 step=any type=number><td>Click Width'
+        + '<tr><td><input class=mini id=target_height min=1 step=any type=number><td>Target Height'
+        + '<tr><td><input class=mini id=target_width min=1 step=any type=number><td>Target Width</table>',
       'title': 'BlindMouse.htm',
       'ui': 'Score: <span id=score></span>',
     });
