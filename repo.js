@@ -123,7 +123,7 @@ function repo_init(){
         'target_height': 100,
         'target_width': 100,
       },
-      'storage-menu': '<table><tr><td><input class=mini id=click_height min=8 step=any type=number><td>Click Height'
+      'storage_menu': '<table><tr><td><input class=mini id=click_height min=8 step=any type=number><td>Click Height'
         + '<tr><td><input class=mini id=click_width min=8 step=any type=number><td>Click Width'
         + '<tr><td><input class=mini id=target_height min=1 step=any type=number><td>Target Height'
         + '<tr><td><input class=mini id=target_width min=1 step=any type=number><td>Target Width</table>',
