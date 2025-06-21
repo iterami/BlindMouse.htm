@@ -99,8 +99,8 @@ function repo_init(){
                   return;
               }
 
-              click_x = core_pointer['down-x'];
-              click_y = core_pointer['down-y'];
+              click_x = core_pointer.down_x;
+              click_y = core_pointer.down_y;
 
               if(click_x <= entity_entities.target.x
                 || click_x >= entity_entities.target.x + core_storage_data.target_width
