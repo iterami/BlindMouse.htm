@@ -6,8 +6,8 @@ function gameover(){
 
 function load_data(id){
     canvas.canvas.style.cursor = 'none';
-    click_x = -1;
-    click_y = -1;
+    core_pointer.down_x = 0;
+    core_pointer.down_y = 0;
     score = 0;
 
     randomize_shapes();
@@ -47,7 +47,7 @@ function repo_drawlogic(){
       core_storage_data.target_height
     );
 
-    if(click_x === -1){
+    if(core_pointer.down_x === 0){
         return;
     }
 
@@ -55,8 +55,8 @@ function repo_drawlogic(){
       'fillStyle': '#663366',
     });
     canvas.fillRect(
-      click_x - core_storage_data.click_width / 2,
-      click_y - core_storage_data.click_height / 2,
+      core_pointer.down_x - core_storage_data.click_width / 2,
+      core_pointer.down_y - core_storage_data.click_height / 2,
       core_storage_data.click_width,
       core_storage_data.click_height
     );
@@ -64,8 +64,8 @@ function repo_drawlogic(){
       'fillStyle': '#000',
     });
     canvas.fillRect(
-      click_x - 3,
-      click_y - 3,
+      core_pointer.down_x - 3,
+      core_pointer.down_y - 3,
       6,
       6
     );
@@ -88,8 +88,6 @@ function repo_init(){
         },
       },
       'globals': {
-        'click_x': -1,
-        'click_y': -1,
         'score': 0,
       },
       'info': '<button id=start type=button>Start New Game</button>',
@@ -101,13 +99,10 @@ function repo_init(){
                   return;
               }
 
-              click_x = core_pointer.down_x;
-              click_y = core_pointer.down_y;
-
-              if(click_x <= entity_entities.target.x
-                || click_x >= entity_entities.target.x + core_storage_data.target_width
-                || click_y <= entity_entities.target.y
-                || click_y >= entity_entities.target.y + core_storage_data.target_height){
+              if(core_pointer.down_x <= entity_entities.target.x
+                || core_pointer.down_x >= entity_entities.target.x + core_storage_data.target_width
+                || core_pointer.down_y <= entity_entities.target.y
+                || core_pointer.down_y >= entity_entities.target.y + core_storage_data.target_height){
                   gameover();
                   canvas_draw();
 
