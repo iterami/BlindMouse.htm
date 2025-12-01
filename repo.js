@@ -47,26 +47,28 @@ function repo_drawlogic(){
       core_storage_data.target_height
     );
 
-    if(click_x >= 0){
-        canvas_setproperties({
-          'fillStyle': '#663366',
-        });
-        canvas.fillRect(
-          click_x - core_storage_data.click_width / 2,
-          click_y - core_storage_data.click_height / 2,
-          core_storage_data.click_width,
-          core_storage_data.click_height
-        );
-        canvas_setproperties({
-          'fillStyle': '#000',
-        });
-        canvas.fillRect(
-          click_x - 3,
-          click_y - 3,
-          6,
-          6
-        );
+    if(click_x === -1){
+        return;
     }
+
+    canvas_setproperties({
+      'fillStyle': '#663366',
+    });
+    canvas.fillRect(
+      click_x - core_storage_data.click_width / 2,
+      click_y - core_storage_data.click_height / 2,
+      core_storage_data.click_width,
+      core_storage_data.click_height
+    );
+    canvas_setproperties({
+      'fillStyle': '#000',
+    });
+    canvas.fillRect(
+      click_x - 3,
+      click_y - 3,
+      6,
+      6
+    );
 }
 
 function repo_escape(){
@@ -113,6 +115,18 @@ function repo_init(){
                   audio_start('boop');
                   score += 1;
                   randomize_shapes();
+              }
+          },
+        },
+        'pointermove': {
+          'todo': function(){
+              if(canvas.canvas.style.cursor === 'auto'){
+                  return;
+              }
+
+              if(core_pointer.x <= 1 || core_pointer.x >= globalThis.innerWidth - 1
+                || core_pointer.y <= 1 || core_pointer.y >= globalThis.innerHeight - 1){
+                  gameover();
               }
           },
         },
