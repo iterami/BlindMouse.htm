@@ -4,15 +4,6 @@ function gameover(){
     canvas.canvas.style.cursor = 'auto';
 }
 
-function load_data(id){
-    canvas.canvas.style.cursor = 'none';
-    core_pointer.down_x = 0;
-    core_pointer.down_y = 0;
-    score = 0;
-
-    randomize_shapes();
-}
-
 function randomize_shapes(){
     entity_remove_all();
 
@@ -144,4 +135,13 @@ function repo_init(){
     });
 
     document.body.onpointerleave = gameover;
+}
+
+function repo_load(id){
+    canvas.canvas.style.cursor = 'none';
+    core_pointer.down_x = 0;
+    core_pointer.down_y = 0;
+    score = 0;
+
+    randomize_shapes();
 }
