@@ -29,7 +29,7 @@ function repo_drawlogic(){
     }
 
     canvas_setproperties({
-      'fillStyle': '#206620',
+      'fillStyle': core_storage_data.target_color,
     });
     canvas.fillRect(
       entity_entities.target.x,
@@ -43,7 +43,7 @@ function repo_drawlogic(){
     }
 
     canvas_setproperties({
-      'fillStyle': '#663366',
+      'fillStyle': core_storage_data.click_color,
     });
     canvas.fillRect(
       core_pointer.down_x - core_storage_data.click_width / 2,
@@ -118,13 +118,17 @@ function repo_init(){
         },
       },
       'storage': {
+        'click_color': '#663366',
         'click_height': 36,
         'click_width': 36,
+        'target_color': '#206620',
         'target_height': 100,
         'target_width': 100,
       },
-      'storage_menu': '<table><tr><td><input class=mini id=click_height min=8 step=any type=number><td>Click Height'
+      'storage_menu': '<table><tr><td><input id=click_color type=color><td>Click Color'
+        + '<tr><td><input class=mini id=click_height min=8 step=any type=number><td>Click Height'
         + '<tr><td><input class=mini id=click_width min=8 step=any type=number><td>Click Width'
+        + '<tr><td><input id=target_color type=color><td>Target Color'
         + '<tr><td><input class=mini id=target_height min=1 step=any type=number><td>Target Height'
         + '<tr><td><input class=mini id=target_width min=1 step=any type=number><td>Target Width</table>',
       'title': 'BlindMouse.htm',
