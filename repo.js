@@ -81,7 +81,7 @@ function repo_init(){
       'globals': {
         'score': 0,
       },
-      'info': '<button id=start type=button>Start New Game</button>',
+      'info': '<button class=medium id=start type=button>Start New Game</button>',
       'menu': true,
       'pointerbinds': {
         'pointerdown': {
