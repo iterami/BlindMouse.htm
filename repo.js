@@ -107,12 +107,13 @@ function repo_init(){
           },
         },
         'pointermove': {
-          'todo': function(){
+          'todo': function(event){
               if(canvas.canvas.style.cursor === 'auto'){
                   return;
               }
 
-              if(core_pointer.x <= 1 || core_pointer.x >= globalThis.innerWidth - 1
+              if(event.target.id !== 'canvas'
+                || core_pointer.x <= 1 || core_pointer.x >= globalThis.innerWidth - 1
                 || core_pointer.y <= 1 || core_pointer.y >= globalThis.innerHeight - 1){
                   gameover();
               }
