@@ -101,7 +101,7 @@ function repo_init(){
 
               }else{
                   audio_start('boop');
-                  score += 1;
+                  score++;
                   randomize_shapes();
               }
           },
@@ -135,7 +135,7 @@ function repo_init(){
         + '<tr><td><input class=mini id=target_height min=1 step=any type=number><td>Target Height'
         + '<tr><td><input class=mini id=target_width min=1 step=any type=number><td>Target Width</table>',
       'title': 'BlindMouse.htm',
-      'ui': 'Score: <span id=score></span>',
+      'ui': ' <span id=score></span>',
     });
     canvas_init({
       'interval': false,
