@@ -86,38 +86,34 @@ function repo_init(){
       'info': '<button class=medium id=start type=button>Start New Game</button>',
       'menu': true,
       'pointerbinds': {
-        'pointerdown': {
-          'todo': function(){
-              if(canvas.canvas.style.cursor === 'auto'){
-                  return;
-              }
+        'pointerdown': function(){
+            if(canvas.canvas.style.cursor === 'auto'){
+                return;
+            }
 
-              if(core_pointer.down_x <= entity_entities.target.x
-                || core_pointer.down_x >= entity_entities.target.x + core_storage_data.target_width
-                || core_pointer.down_y <= entity_entities.target.y
-                || core_pointer.down_y >= entity_entities.target.y + core_storage_data.target_height){
-                  gameover();
-                  canvas_draw();
+            if(core_pointer.down_x <= entity_entities.target.x
+              || core_pointer.down_x >= entity_entities.target.x + core_storage_data.target_width
+              || core_pointer.down_y <= entity_entities.target.y
+              || core_pointer.down_y >= entity_entities.target.y + core_storage_data.target_height){
+                gameover();
+                canvas_draw();
 
-              }else{
-                  audio_start('boop');
-                  score++;
-                  randomize_shapes();
-              }
-          },
+            }else{
+                audio_start('boop');
+                score++;
+                randomize_shapes();
+            }
         },
-        'pointermove': {
-          'todo': function(event){
-              if(canvas.canvas.style.cursor === 'auto'){
-                  return;
-              }
+        'pointermove': function(event){
+            if(canvas.canvas.style.cursor === 'auto'){
+                return;
+            }
 
-              if(event.target.id !== 'canvas'
-                || core_pointer.x <= 1 || core_pointer.x >= globalThis.innerWidth - 1
-                || core_pointer.y <= 1 || core_pointer.y >= globalThis.innerHeight - 1){
-                  gameover();
-              }
-          },
+            if(event.target.id !== 'canvas'
+              || core_pointer.x <= 1 || core_pointer.x >= globalThis.innerWidth - 1
+              || core_pointer.y <= 1 || core_pointer.y >= globalThis.innerHeight - 1){
+                gameover();
+            }
         },
       },
       'storage': {
